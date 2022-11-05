@@ -1,0 +1,15 @@
+<div *ngIf="song">
+  <h3>Canción seleccionada</h3>
+  <div class="selectedSong">
+    <img class="img" [src]="song.cover" alt="song.title" style="margin: auto; display:block"/>
+    <p class="selectedSongItem">Id: {{song.id}}</p>
+    <p class="selectedSongItem">Título: {{song.title | uppercase}}</p>
+    <p class="selectedSongItem">Author: {{song.author}}</p>
+    <p class="selectedSongItem">Grupo: {{song.group}}</p>
+    <p class="selectedSongItem">Año: {{song.year}}</p>
+    <p class="selectedSongItem">Album: {{song.album}}</p>
+    <p class="selectedSongItem">BPM: {{song.bpm}}</p>
+    <p class="selectedSongItem">Duración: {{song.length}}</p>
+    <p class="selectedSongItem">Género: {{song.genre}}</p>
+  </div>
+</div>

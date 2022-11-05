@@ -1,0 +1,23 @@
+.selectedSong{
+  align-self: center;
+  background-color: #405061;
+  padding: 0.8em 0.7em 0 0.7em;
+  border-radius: 2em 2em 2em 2em;
+  line-height: 2em;
+  align-content: center;
+  max-width: 23em;
+  max-height: 50em;
+  align-items: stretch;
+
+  position: center;
+}
+.selectedSong .selectedSongItem{
+  font-size: 0.8em;
+}
+
+.img{
+  height: 20em;
+  width: 20em;
+  max-width: 45em;
+  max-height: 45em;
+}
