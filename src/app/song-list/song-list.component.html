@@ -1,9 +1,9 @@
 <div>
   <h2>Lista de canciones</h2>
-  <app-song-detail [song]="selectedSong"></app-song-detail>
+
 <ul class="songs">
   <li *ngFor="let song of songs">
-    <button type="button" (click)="onSelect(song)" style="width: 30rem">
+    <button type="button" (click)="onSelected()" style="width: 30rem">
       <img class="img" [src]="song.cover" alt="song.title" />
       <span class="badge">{{song.id}}</span>
       <span class="name">{{song.title}}</span>

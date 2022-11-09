@@ -1,12 +1,14 @@
-import { Injectable } from '@angular/core';
+import { Injectable, EventEmitter } from '@angular/core';
 import { Song } from './songs/song';
 import { SONGS } from './songs/songs-data';
-import { Observable, of } from 'rxjs';
+import { BehaviorSubject, Observable, of, Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SongService {
+  songSelected = new EventEmitter<Song>();
+
 
   constructor() { }
 
@@ -21,4 +23,6 @@ export class SongService {
     const songs = of(SONGS);
     return songs;
   }
+
+
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Song } from '../songs/song';
 import { SONGS } from '../songs/songs-data';
 import { SongService } from '../song.service';
@@ -12,15 +12,28 @@ export class SongListComponent implements OnInit {
 
   songs : Song[] = [];
   selectedSong? : Song;
+  @Input() song : Song;
 
-  constructor(private songService: SongService) { }
+  constructor(private songService: SongService) {
+    this.song = {id: 1,
+      title: 'For You',
+      author: 'chenda',
+      cover:
+        'https://linkstorage.linkfire.com/medialinks/images/8c7d194f-5535-4ebd-9f93-857a84ee1700/artwork-440x440.jpg',
+      group: 'NCS',
+      year: 2022,
+      album: 'For You',
+      bpm: 160,
+      length: 269,
+      genre: 'Drum And Bass',}
+   }
 
   ngOnInit(): void {
     this.getSongs();
   }
 
-  onSelect(song: Song): void{
-    this.selectedSong = song;
+  onSelected(){
+    this.songService.songSelected.emit(this.song)
   }
 
   //Esto es síncrono. No serviría para obtener datos en una aplicación con base de datos..
