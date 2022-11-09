@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output } from '@angular/core';
 import { Song } from '../songs/song';
 import { SONGS } from '../songs/songs-data';
 import { SongService } from '../song.service';
@@ -11,7 +11,7 @@ import { SongService } from '../song.service';
 export class SongListComponent implements OnInit {
 
   songs : Song[] = [];
-  selectedSong? : Song;
+  @Output() selectedSong? : Song;
   @Input() song : Song;
 
   constructor(private songService: SongService) {
@@ -32,8 +32,8 @@ export class SongListComponent implements OnInit {
     this.getSongs();
   }
 
-  onSelected(){
-    this.songService.songSelected.emit(this.song)
+  onSelected(selectedSong : Song){
+    this.songService.songSelected.emit(selectedSong)
   }
 
   //Esto es síncrono. No serviría para obtener datos en una aplicación con base de datos..

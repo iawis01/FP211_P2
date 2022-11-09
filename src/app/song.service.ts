@@ -24,5 +24,9 @@ export class SongService {
     return songs;
   }
 
+  emitSongEvent(song: Song) {
+    this.songSelected.next(song);
+  }
+
 
 }
